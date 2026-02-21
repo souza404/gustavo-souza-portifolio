@@ -343,25 +343,25 @@ const projects: Project[] = [
         title: "Gestor de Estado do Lead",
         description: "Ponto inicial que recebe o webhook da Uazapi. Filtra variáveis (JID, Nome), gerencia o cadastro no Supabase (Upsert), verifica follow-ups pendentes e roteia entre atendimento humano ou IA. Inclui lógica de reset (/reset) e atualização de timestamp de última atividade.",
         image: "https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/gestor_lead.png",
-        features: ["Webhook Uazapi", "Supabase Upsert", "Router Lógico", "Gestão de Sessão"]
+        features: ["Uazapi API", "Supabase", "Cron", "Gestão de Sessão"]
       },
       {
         title: "Rotina de Manutenção e Reativação",
         description: "Execução agendada (Cron) ou manual que audita leads marcados como 'atendimento_humano'. Realiza processamento em lote para resetar flags e devolver leads ao fluxo de automação da IA, garantindo que nenhum lead fique estagnado.",
         image: "https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/reativar_agente.png",
-        features: ["Cron Trigger", "Batch Processing", "Supabase Query", "Auto-Recovery"]
+        features: ["Schedule Trigger", "Supabase", "Iteration", "Auto-Recovery"]
       },
       {
         title: "Processador de Entrada & Buffer",
         description: "Converte áudio (Whisper) e imagens (GPT-4o Vision) em texto estruturado. Implementa filas no Redis com Debounce (10s) para agrupar mensagens sequenciais em um único bloco de contexto antes de enviar para o Agente.",
         image: "https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/buffer.png",
-        features: ["OpenAI Whisper", "GPT-4o Vision", "Redis Queue", "Debounce Logic"]
+        features: ["OpenAI Whisper", "Buffer", "Redis Queue", "Debounce Logic"]
       },
       {
         title: "Agente de IA: Luana",
         description: "O núcleo da inteligência. Gerencia 7 fases de atendimento (Saudação a Localização) usando GPT-5-mini. Utiliza o histórico de conversas do Postgres para contexto, Tools para envio de mídias e output estruturado para agendamentos. Inclui sintetização de voz (ElevenLabs).",
         image: "https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/agente.png",
-        features: ["System Prompt Complexo", "Histórico Postgres", "ElevenLabs TTS", "Tools Calling"]
+        features: ["OpenAI", "Histórico Postgres", "ElevenLabs TTS", "Tools Calling", "Output Parsing", "State Management"]
       },
       {
         title: "Servidor MCP: Gestão de Agenda",
@@ -373,7 +373,7 @@ const projects: Project[] = [
         title: "Follow-Up/Reengajamento",
         description: "Monitora inatividade (ex: 210 min). Aplica filtros de segurança e horário comercial antes de disparar mensagens dinâmicas de recuperação via WhatsApp, atualizando o funil no Supabase.",
         image: "https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/fup.png",
-        features: ["Time Triggers", "Funnel Logic", "Conditional Routing", "WhatsApp Send"]
+        features: ["Time Triggers", "Funnel Logic", "Conditional Routing", "WhatsApp Send", "Cron"]
       }
     ]
   }

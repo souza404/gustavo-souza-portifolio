@@ -1068,16 +1068,16 @@ export default function App() {
             <a href="mailto:gustavohsc.contato@gmail.com" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all">
               <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
-            <a href="#" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-card flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-all">
+            <a href="https://www.linkedin.com/in/gustavo-hsouza/" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-card flex items-center justify-center hover:bg-[#0077b5] hover:text-white transition-all">
               <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
-            <a href="#" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all">
+            <a href="https://github.com/souza404" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all">
               <Github className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
           </div>
         </div>
         <div className="mt-10 text-center text-[10px] text-gray-700 font-mono">
-          © 2024 Gustavo Souza. Built with n8n mentality.
+          © 2026 Gustavo Souza. Construindo hoje as soluções inteligentes de amanhã.
         </div>
       </footer>
 

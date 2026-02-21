@@ -228,6 +228,8 @@ const AestheticBotVisual = () => (
 
 // New Component: Workflow Gallery
 const WorkflowGallery = ({ workflows }: { workflows: NonNullable<Project['workflows']> }) => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div className="space-y-16">
       {workflows.map((flow, index) => (
@@ -277,6 +279,7 @@ const WorkflowGallery = ({ workflows }: { workflows: NonNullable<Project['workfl
             {/* Image Column */}
             <div className="md:w-2/3">
               <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[#0f0f11] shadow-2xl group-hover:border-n8n-primary/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+                
                 {/* Browser Toolbar Mockup */}
                 <div className="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 gap-2">
                   <div className="flex gap-1.5">
@@ -290,8 +293,11 @@ const WorkflowGallery = ({ workflows }: { workflows: NonNullable<Project['workfl
                   </div>
                 </div>
 
-                {/* Image Area */}
-                <div className="relative group/img cursor-zoom-in bg-grid-white/[0.02]">
+                {/* Image Area - Clique aqui abre o modal */}
+                <div 
+                  className="relative group/img cursor-zoom-in bg-grid-white/[0.02]"
+                  onClick={() => setSelectedImage(flow.image)}
+                >
                   <img
                     src={flow.image}
                     alt={flow.title}
@@ -310,6 +316,33 @@ const WorkflowGallery = ({ workflows }: { workflows: NonNullable<Project['workfl
           </div>
         </motion.div>
       ))}
+
+      {/* Modal de Zoom (Lightbox) */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 bg-white/10 rounded-full">
+              <X className="w-6 h-6" />
+            </button>
+
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              src={selectedImage}
+              className="max-w-full max-h-[90vh] rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.8)] object-contain"
+              onClick={(e) => e.stopPropagation()} 
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

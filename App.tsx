@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import {
   Workflow, Database, Linkedin, Github, Mail, BrainCircuit,
   Zap, X, ArrowRight, CheckCircle2, MessageSquare, Mic, Calendar,
-  Play, Clock, Layers, Maximize2, Bot, Download, Briefcase, ExternalLink,
-  ChevronRight, Smartphone
+  Play, Clock, Maximize2, Brain, Download, Briefcase, ExternalLink,
+  ChevronRight, Smartphone, LucideBrainCircuit, Bot
 } from 'lucide-react';
 import { motion, useMotionTemplate, useMotionValue, AnimatePresence } from 'framer-motion';
 import { Project, Experience } from './types';
@@ -575,9 +575,12 @@ export default function App() {
       >
         <div className="max-w-7xl mx-auto glass-card rounded-full px-4 sm:px-6 py-3 flex justify-between items-center bg-black/40 backdrop-blur-md border border-white/5">
           <div className="flex items-center">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg">
-              <span className="font-display font-bold text-white text-base sm:text-xl">GS</span>
+            <a href="index.html">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg">
+              <span className="font-display font-bold text-white text-base sm:text-xl"><LucideBrainCircuit></LucideBrainCircuit></span>
             </div>
+            </a>
+            
           </div>
           <div className="hidden sm:flex space-x-6 lg:space-x-8 text-[13px] font-medium text-gray-400">
             <a href="#about" className="hover:text-white transition-colors">Experiência</a>

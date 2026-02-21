@@ -279,7 +279,7 @@ const WorkflowGallery = ({ workflows }: { workflows: NonNullable<Project['workfl
             {/* Image Column */}
             <div className="md:w-2/3">
               <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[#0f0f11] shadow-2xl group-hover:border-n8n-primary/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-                
+
                 {/* Browser Toolbar Mockup */}
                 <div className="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 gap-2">
                   <div className="flex gap-1.5">
@@ -294,7 +294,7 @@ const WorkflowGallery = ({ workflows }: { workflows: NonNullable<Project['workfl
                 </div>
 
                 {/* Image Area - Clique aqui abre o modal */}
-                <div 
+                <div
                   className="relative group/img cursor-zoom-in bg-grid-white/[0.02]"
                   onClick={() => setSelectedImage(flow.image)}
                 >
@@ -338,7 +338,7 @@ const WorkflowGallery = ({ workflows }: { workflows: NonNullable<Project['workfl
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               src={selectedImage}
               className="max-w-full max-h-[90vh] rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.8)] object-contain"
-              onClick={(e) => e.stopPropagation()} 
+              onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
         )}
@@ -830,7 +830,8 @@ export default function App() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8 }}
-                  className="glass-card rounded-[2rem] p-8 border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent relative overflow-hidden"
+                  /* Efeito de Hover unificado: hover:border-purple-500/30 e hover:from-purple-500/[0.05] */
+                  className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d0d0d] bg-gradient-to-b from-white/[0.07] to-transparent p-8 shadow-2xl backdrop-blur-sm bg-clip-padding transition-all duration-500 group hover:border-purple-500/30 hover:from-purple-500/[0.05] hover:translate-x-1"
                 >
                   {/* Glowing Decoration */}
                   <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/20 blur-[80px] -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none"></div>
@@ -839,7 +840,6 @@ export default function App() {
                   <div className="relative w-24 h-24 mb-6">
                     <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 animate-spin-slow blur-md opacity-50"></div>
                     <div className="relative w-full h-full rounded-full bg-[#111] border-2 border-white/10 flex items-center justify-center overflow-hidden">
-                      <span className="font-display font-bold text-3xl text-white"></span>
                       <img
                         src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/foto_perfil.jpeg"
                         alt="Foto de Perfil"
@@ -858,11 +858,11 @@ export default function App() {
 
                   {/* Quick Stats */}
                   <div className="grid grid-cols-2 gap-4 mb-8">
-                    <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center">
+                    <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
                       <div className="text-2xl font-bold text-white mb-1">4+</div>
                       <div className="text-[10px] text-gray-500 uppercase tracking-widest">Anos Exp.</div>
                     </div>
-                    <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center">
+                    <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
                       <div className="text-2xl font-bold text-white mb-1">15+</div>
                       <div className="text-[10px] text-gray-500 uppercase tracking-widest">Soluções Críticas</div>
                     </div>
@@ -870,19 +870,14 @@ export default function App() {
 
                   {/* Socials & Actions */}
                   <div className="flex flex-col gap-3">
-                    <a href="mailto:gustavohsc.contato@gmail.com" className="w-full py-3 rounded-xl bg-white text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors">
+                    <a href="mailto:gustavohsc.contato@gmail.com" className="w-full py-3 rounded-xl bg-white text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-200 transition-all active:scale-[0.98]">
                       <Mail className="w-4 h-4" /> Entrar em Contato
                     </a>
                     <div className="flex gap-3">
-                      <a href="https://www.linkedin.com/in/gustavo-hsouza/" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-colors">
+                      <a href="https://www.linkedin.com/in/gustavo-hsouza/" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
                         <Linkedin className="w-4 h-4" /> LinkedIn
                       </a>
-                      <a
-                        href="https://drive.google.com/file/d/1kxv9H-12uccbpJH4n9FDtZF90SIk_eIN/view?usp=sharing"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
-                      >
+                      <a href="https://drive.google.com/file/d/1kxv9H-12uccbpJH4n9FDtZF90SIk_eIN/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
                         <Download className="w-4 h-4" /> CV
                       </a>
                     </div>
@@ -914,11 +909,12 @@ export default function App() {
                       <div className="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-[#0a0a0a] border-2 border-purple-500 z-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                         <div className="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:animate-ping"></div>
                       </div>
+
                       {/* Horizontal Connector */}
                       <div className="absolute -left-[30px] top-[34px] w-8 h-0.5 bg-purple-500/50 group-hover:bg-purple-500 transition-colors duration-500"></div>
 
-                      {/* Card */}
-                      <div className="glass-card p-6 md:p-8 rounded-2xl border border-white/5 hover:border-purple-500/30 transition-all duration-500 bg-gradient-to-r from-transparent to-transparent hover:from-purple-500/[0.05] group-hover:translate-x-1">
+                      {/* Card (Removida a classe glass-card para evitar bugs e aplicado o mesmo efeito do lado esquerdo) */}
+                      <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-[#0d0d0d] bg-gradient-to-r from-transparent to-transparent hover:from-purple-500/[0.05] hover:border-purple-500/30 transition-all duration-500 hover:translate-x-1 shadow-xl">
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
                           <div>
                             <h4 className="text-xl font-bold text-white">{exp.role}</h4>

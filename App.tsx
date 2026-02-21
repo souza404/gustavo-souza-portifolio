@@ -216,7 +216,7 @@ const WorkflowGallery = React.memo(({ workflows }: { workflows: NonNullable<Proj
                   </div>
                 </div>
 
-                <div 
+                <div
                   className="relative group/img cursor-zoom-in bg-grid-white/[0.02]"
                   onClick={() => setSelectedImage(flow.image)}
                 >
@@ -259,7 +259,7 @@ const WorkflowGallery = React.memo(({ workflows }: { workflows: NonNullable<Proj
               src={selectedImage}
               loading="lazy"
               className="max-w-full max-h-[90vh] rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.8)] object-contain"
-              onClick={(e) => e.stopPropagation()} 
+              onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
         )}
@@ -381,6 +381,18 @@ const projects: Project[] = [
 
 // --- MAIN COMPONENTS ---
 
+const N8nIcon = ({ className }: { className?: string }) => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    xmlns="http://www.w3.org/2000/"
+  >
+    <path d="M24 8.4c0 1.325-1.102 2.4-2.462 2.4-1.146 0-2.11-.765-2.384-1.8h-3.436c-.602 0-1.115.424-1.214 1.003l-.101.592a2.38 2.38 0 01-.8 1.405c.412.354.704.844.8 1.405l.1.592A1.222 1.222 0 0015.719 15h.975c.273-1.035 1.237-1.8 2.384-1.8 1.36 0 2.461 1.075 2.461 2.4S20.436 18 19.078 18c-1.147 0-2.11-.765-2.384-1.8h-.975c-1.204 0-2.23-.848-2.428-2.005l-.101-.592a1.222 1.222 0 00-1.214-1.003H10.97c-.308.984-1.246 1.7-2.356 1.7-1.11 0-2.048-.716-2.355-1.7H4.817c-.308.984-1.246 1.7-2.355 1.7C1.102 14.3 0 13.225 0 11.9s1.102-2.4 2.462-2.4c1.183 0 2.172.815 2.408 1.9h1.337c.236-1.085 1.225-1.9 2.408-1.9 1.184 0 2.172.815 2.408 1.9h.952c.601 0 1.115-.424 1.213-1.003l.102-.592c.198-1.157 1.225-2.005 2.428-2.005h3.436c.274-1.035 1.238-1.8 2.384-1.8C22.898 6 24 7.075 24 8.4zm-1.23 0c0 .663-.552 1.2-1.232 1.2-.68 0-1.23-.537-1.23-1.2 0-.663.55-1.2 1.23-1.2.68 0 1.231.537 1.231 1.2zM2.461 13.1c.68 0 1.23-.537 1.23-1.2 0-.663-.55-1.2-1.23-1.2-.68 0-1.231.537-1.231 1.2 0 .663.55 1.2 1.23 1.2zm6.153 0c.68 0 1.231-.537 1.231-1.2 0-.663-.55-1.2-1.23-1.2-.68 0-1.231.537-1.231 1.2 0 .663.55 1.2 1.23 1.2zm10.462 3.7c.68 0 1.23-.537 1.23-1.2 0-.663-.55-1.2-1.23-1.2-.68 0-1.23.537-1.23 1.2 0 .663.55 1.2 1.23 1.2z" />
+  </svg>
+);
+
 const ProjectModal = React.memo(({ project, onClose }: { project: Project; onClose: () => void }) => {
   const [activeTab, setActiveTab] = useState<'workflow' | 'overview'>('workflow');
 
@@ -419,7 +431,7 @@ const ProjectModal = React.memo(({ project, onClose }: { project: Project; onClo
                   onClick={() => setActiveTab('workflow')}
                   className={`group px-6 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 flex items-center gap-2 border ${activeTab === 'workflow' ? 'bg-gradient-to-r from-n8n-dark to-n8n-primary border-transparent text-white shadow-[0_4px_20px_rgba(255,109,90,0.3)] scale-105' : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10'}`}
                 >
-                  <Workflow className={`w-4 h-4 transition-transform group-hover:rotate-12 ${activeTab === 'workflow' ? 'text-white' : 'text-n8n-primary'}`} />
+                  <N8nIcon className={`w-4 h-4 transition-transform group-hover:scale-125 ${activeTab === 'workflow' ? 'text-white' : 'text-n8n-primary'}`} />
                   ARQUITETURA (n8n)
                 </button>
               )}
@@ -568,10 +580,10 @@ export default function App() {
             </div>
           </div>
           <div className="hidden sm:flex space-x-6 lg:space-x-8 text-[13px] font-medium text-gray-400">
-            <a href="#about" className="hover:text-white transition-colors">Sobre</a>
-            <a href="#projects" className="hover:text-white transition-colors">Projetos</a>
+            <a href="#about" className="hover:text-white transition-colors">Experiência</a>
+            <a href="#projects" className="hover:text-white transition-colors">Projeto</a>
           </div>
-          <a href="mailto:gustavohsc.contato@gmail.com" className="bg-white text-black px-4 sm:px-6 py-2 rounded-full text-[12px] sm:text-sm font-bold hover:bg-gray-200 transition-all">
+          <a href="#footer" className="bg-white text-black px-4 sm:px-6 py-2 rounded-full text-[12px] sm:text-sm font-bold hover:bg-gray-200 transition-all">
             Contato
           </a>
         </div>
@@ -602,7 +614,7 @@ export default function App() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
-              Pronto para automatizar
+              Do trabalho manual à Hiperautomação
             </motion.div>
 
             <motion.h1
@@ -617,7 +629,8 @@ export default function App() {
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}
               className="text-base sm:text-lg md:text-xl text-gray-400 max-w-xl mx-auto mb-10 sm:mb-12 leading-relaxed font-light px-4"
             >
-              Crio ecossistemas digitais autônomos com <strong className="text-white font-medium">n8n</strong>, <strong className="text-white font-medium">Python</strong> e <strong className="text-white font-medium">IA</strong> para escalar resultados.
+
+              Construo ecossistemas digitais autônomos que reduzem custos operacionais e escalam resultados. Combinando <strong className="text-white font-medium">n8n</strong>, manipulação de dados em <strong className="text-white font-medium">JavaScript</strong> e <strong className="text-white font-medium">Agentes de IA</strong>.
             </motion.p>
 
             <motion.div
@@ -625,10 +638,7 @@ export default function App() {
               className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center px-6 sm:px-0"
             >
               <a href="#projects" className="px-8 py-4 bg-white text-black rounded-xl sm:rounded-full font-bold transition-all hover:scale-105 flex items-center justify-center gap-2">
-                Ver Projetos <ArrowRight className="w-4 h-4" />
-              </a>
-              <a href="https://www.linkedin.com/in/gustavo-hsouza/" target="_blank" rel="noreferrer" className="px-8 py-4 glass-card rounded-xl sm:rounded-full font-semibold text-white hover:bg-white/10 transition-all flex items-center justify-center gap-2">
-                LinkedIn
+                Ver Projeto em Destaque <N8nIcon className="w-4 h-4" />
               </a>
             </motion.div>
           </div>
@@ -703,7 +713,7 @@ export default function App() {
               <div className="lg:col-span-7 pt-8 lg:pt-0">
                 <div className="mb-12">
                   <h3 className="text-2xl font-display font-bold text-white flex items-center gap-3">
-                    <Briefcase className="w-6 h-6 text-purple-500" /> Experiência & Tech
+                    <Briefcase className="w-6 h-6 text-purple-500" /> Experiência
                   </h3>
                 </div>
 
@@ -838,7 +848,7 @@ export default function App() {
         </motion.section>
       </main>
 
-      <footer className="py-12 sm:py-20 border-t border-white/5 bg-[#020202]">
+      <footer id="footer" className="py-12 sm:py-20 border-t border-white/5 bg-[#020202]">
         <div className="container mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-8">
           <div className="text-center sm:text-left">
             <h4 className="text-xl sm:text-2xl font-display font-bold text-white mb-1">Gustavo Souza</h4>
@@ -854,10 +864,27 @@ export default function App() {
             <a href="https://github.com/souza404" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all">
               <Github className="w-4 h-4 sm:w-5 sm:h-5" />
             </a>
+
+            <a
+              href="https://wa.me/5531992510873"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-card flex items-center justify-center hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all"
+            >
+              {/* Ícone Oficial do WhatsApp em SVG */}
+              <svg
+                className="w-4 h-4 sm:w-5 sm:h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+              </svg>
+            </a>
           </div>
         </div>
         <div className="mt-10 text-center text-[10px] text-gray-700 font-mono">
-          © 2024 Gustavo Souza. Built with n8n mentality.
+          © 2026 Gustavo Souza.
         </div>
       </footer>
 

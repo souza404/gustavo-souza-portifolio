@@ -841,7 +841,7 @@ export default function App() {
                     <div className="relative w-full h-full rounded-full bg-[#111] border-2 border-white/10 flex items-center justify-center overflow-hidden">
                       <span className="font-display font-bold text-3xl text-white"></span>
                       <img
-                        src="/perfil.jpg"
+                        src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/foto_perfil.jpeg"
                         alt="Foto de Perfil"
                         className="w-full h-full object-cover z-10"
                       />

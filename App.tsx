@@ -617,7 +617,7 @@ export default function App() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
-              Do trabalho manual à Hiperautomação
+              Disponível para Operações e Projetos
             </motion.div>
 
             <motion.h1
@@ -649,122 +649,132 @@ export default function App() {
 
         {/* ABOUT & EXPERIENCE SECTION - Modificada com o fix de bug de tela e hover unificado */}
         <section id="about" className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none"></div>
+  <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none"></div>
 
-          <div className="container mx-auto px-6 relative z-10">
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+  <div className="container mx-auto px-6 relative z-10">
+    <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
-              {/* LEFT COLUMN: Sticky Profile Card */}
-              <div className="lg:col-span-5 lg:sticky lg:top-24">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d0d0d] bg-gradient-to-b from-white/[0.07] to-transparent p-8 shadow-2xl backdrop-blur-sm bg-clip-padding transition-all duration-500 group hover:border-purple-500/30 hover:from-purple-500/[0.05] hover:translate-x-1 will-change-transform"
-                >
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/20 blur-[80px] -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none"></div>
+      {/* LEFT COLUMN: Sticky Profile Card */}
+      <div className="lg:col-span-5 lg:sticky lg:top-24">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }} // Alterado para eixo Y para um assentamento perfeito
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          // Removido 'hover:translate-x-1' e 'will-change-transform' para não brigar com o Framer Motion
+          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d0d0d] bg-gradient-to-b from-white/[0.07] to-transparent p-8 shadow-2xl backdrop-blur-sm bg-clip-padding transition-all duration-500 group hover:border-purple-500/30 hover:from-purple-500/[0.05]"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/20 blur-[80px] -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none"></div>
 
-                  <div className="relative w-24 h-24 mb-6">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 animate-spin-slow blur-md opacity-50"></div>
-                    <div className="relative w-full h-full rounded-full bg-[#111] border-2 border-white/10 flex items-center justify-center overflow-hidden">
-                      <img
-                        src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/foto_perfil.jpeg"
-                        alt="Foto de Perfil"
-                        loading="lazy" decoding="async"
-                        className="w-full h-full object-cover z-10"
-                      />
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-6 h-6 bg-emerald-500 rounded-full border-4 border-[#0a0a0a] z-50" title="Available for work"></div>
-                  </div>
+          <div className="relative w-24 h-24 mb-6">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 animate-spin-slow blur-md opacity-50"></div>
+            <div className="relative w-full h-full rounded-full bg-[#111] border-2 border-white/10 flex items-center justify-center overflow-hidden">
+              <img
+                src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/foto_perfil.jpeg"
+                alt="Foto de Perfil"
+                loading="lazy" decoding="async"
+                className="w-full h-full object-cover z-10"
+              />
+            </div>
+            <div className="absolute bottom-0 right-0 w-6 h-6 bg-emerald-500 rounded-full border-4 border-[#0a0a0a] z-50" title="Available for work"></div>
+          </div>
 
-                  <h2 className="text-3xl font-display font-bold text-white mb-2">Gustavo Souza</h2>
-                  <p className="text-purple-400 font-mono text-sm mb-6">Engenheiro de Automação & IA</p>
+          <h2 className="text-3xl font-display font-bold text-white mb-2">Gustavo Souza</h2>
+          <p className="text-purple-400 font-mono text-sm mb-6">Engenheiro de Automação & IA</p>
 
-                  <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                    Especialista em Hiperautomação e Engenharia de IA com foco na arquitetura e orquestração de fluxos de trabalho escaláveis utilizando n8n e desenvolvimento de Agentes Autônomos.
-                  </p>
+          <p className="text-gray-400 text-sm leading-relaxed mb-8">
+            Especialista em Hiperautomação e Engenharia de IA com foco na arquitetura e orquestração de fluxos de trabalho escaláveis utilizando n8n e desenvolvimento de Agentes Autônomos.
+          </p>
 
-                  <div className="grid grid-cols-2 gap-4 mb-8">
-                    <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
-                      <div className="text-2xl font-bold text-white mb-1">4+</div>
-                      <div className="text-[10px] text-gray-500 uppercase tracking-widest">Anos Exp.</div>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
-                      <div className="text-2xl font-bold text-white mb-1">15+</div>
-                      <div className="text-[10px] text-gray-500 uppercase tracking-widest">Soluções Críticas</div>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-3">
-                    <a href="mailto:gustavohsc.contato@gmail.com" className="w-full py-3 rounded-xl bg-white text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-200 transition-all active:scale-[0.98]">
-                      <Mail className="w-4 h-4" /> Entrar em Contato
-                    </a>
-                    <div className="flex gap-3">
-                      <a href="https://www.linkedin.com/in/gustavo-hsouza/" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
-                        <Linkedin className="w-4 h-4" /> LinkedIn
-                      </a>
-                      <a href="https://drive.google.com/file/d/1kxv9H-12uccbpJH4n9FDtZF90SIk_eIN/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
-                        <Download className="w-4 h-4" /> CV
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* RIGHT COLUMN: Circuit Board Timeline */}
-              <div className="lg:col-span-7 pt-8 lg:pt-0">
-                <div className="mb-12">
-                  <h3 className="text-2xl font-display font-bold text-white flex items-center gap-3">
-                    <Briefcase className="w-6 h-6 text-purple-500" /> Experiência
-                  </h3>
-                </div>
-
-                <motion.div
-                  variants={staggerContainer}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="relative pl-8 md:pl-10 space-y-12"
-                >
-                  <div className="absolute left-0 top-2 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-purple-500/20 to-transparent"></div>
-
-                  {experiences.map((exp, index) => (
-                    <motion.div key={index} variants={fadeIn} className="relative group">
-                      <div className="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-[#0a0a0a] border-2 border-purple-500 z-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <div className="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:animate-ping"></div>
-                      </div>
-                      <div className="absolute -left-[30px] top-[34px] w-8 h-0.5 bg-purple-500/50 group-hover:bg-purple-500 transition-colors duration-500"></div>
-
-                      <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-[#0d0d0d] transition-all duration-500 bg-gradient-to-r from-transparent to-transparent hover:border-purple-500/30 hover:from-purple-500/[0.05] group-hover:translate-x-1 will-change-transform shadow-xl">
-                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
-                          <div>
-                            <h4 className="text-xl font-bold text-white">{exp.role}</h4>
-                            <a href="#" className="text-purple-400 text-sm font-medium hover:underline flex items-center gap-1">
-                              {exp.company} <ExternalLink className="w-3 h-3" />
-                            </a>
-                          </div>
-                          <span className="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-400 font-mono border border-white/5 whitespace-nowrap">
-                            {exp.period}
-                          </span>
-                        </div>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-6">{exp.description}</p>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.skills.map((skill, i) => (
-                            <span key={i} className="px-2.5 py-1 rounded-md bg-[#0f0f11] border border-white/10 text-[11px] text-gray-300 font-mono flex items-center gap-1.5 hover:border-purple-500/40 hover:text-purple-200 transition-colors cursor-default">
-                              <span className="w-1 h-1 rounded-full bg-purple-500"></span>
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
+          <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
+              <div className="text-2xl font-bold text-white mb-1">4+</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest">Anos Exp.</div>
+            </div>
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
+              <div className="text-2xl font-bold text-white mb-1">15+</div>
+              <div className="text-[10px] text-gray-500 uppercase tracking-widest">Soluções Críticas</div>
             </div>
           </div>
-        </section>
+
+          <div className="flex flex-col gap-3">
+            <a href="mailto:gustavohsc.contato@gmail.com" className="w-full py-3 rounded-xl bg-white text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-200 transition-all active:scale-[0.98]">
+              <Mail className="w-4 h-4" /> Entrar em Contato
+            </a>
+            <div className="flex gap-3">
+              <a href="https://www.linkedin.com/in/gustavo-hsouza/" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
+                <Linkedin className="w-4 h-4" /> LinkedIn
+              </a>
+              <a href="https://drive.google.com/file/d/1kxv9H-12uccbpJH4n9FDtZF90SIk_eIN/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
+                <Download className="w-4 h-4" /> CV
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* RIGHT COLUMN: Circuit Board Timeline */}
+      {/* Trocado lg:pt-0 por lg:pt-3 para descer a coluna da direita o suficiente para o alinhamento perfeito */}
+      <div className="lg:col-span-7 pt-8 lg:pt-3">
+        
+        {/* Adicionado motion.div no título para ele também acompanhar a animação de carregamento de forma sincronizada */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="mb-12"
+        >
+          <h3 className="text-2xl font-display font-bold text-white flex items-center gap-3">
+            <Briefcase className="w-6 h-6 text-purple-500" /> Experiência
+          </h3>
+        </motion.div>
+
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="relative pl-8 md:pl-10 space-y-12"
+        >
+          <div className="absolute left-0 top-2 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-purple-500/20 to-transparent"></div>
+
+          {experiences.map((exp, index) => (
+            <motion.div key={index} variants={fadeIn} className="relative group">
+              <div className="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-[#0a0a0a] border-2 border-purple-500 z-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:animate-ping"></div>
+              </div>
+              <div className="absolute -left-[30px] top-[34px] w-8 h-0.5 bg-purple-500/50 group-hover:bg-purple-500 transition-colors duration-500"></div>
+
+              <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-[#0d0d0d] transition-all duration-500 bg-gradient-to-r from-transparent to-transparent hover:border-purple-500/30 hover:from-purple-500/[0.05] group-hover:translate-x-1 will-change-transform shadow-xl">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+                  <div>
+                    <h4 className="text-xl font-bold text-white">{exp.role}</h4>
+                    <a href="#" className="text-purple-400 text-sm font-medium hover:underline flex items-center gap-1">
+                      {exp.company} <ExternalLink className="w-3 h-3" />
+                    </a>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-400 font-mono border border-white/5 whitespace-nowrap">
+                    {exp.period}
+                  </span>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">{exp.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {exp.skills.map((skill, i) => (
+                    <span key={i} className="px-2.5 py-1 rounded-md bg-[#0f0f11] border border-white/10 text-[11px] text-gray-300 font-mono flex items-center gap-1.5 hover:border-purple-500/40 hover:text-purple-200 transition-colors cursor-default">
+                      <span className="w-1 h-1 rounded-full bg-purple-500"></span>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </div>
+  </div>
+</section>
 
         {/* PROJECTS SECTION */}
         <motion.section

@@ -3,7 +3,7 @@ import {
   Workflow, Database, Linkedin, Github, Mail, BrainCircuit,
   Zap, X, ArrowRight, CheckCircle2, Mic, Calendar,
   Play, Clock, Maximize2, Download, Briefcase, ExternalLink,
-  ChevronRight, LucideBrainCircuit, Bot, BotIcon, BookTemplateIcon, LucideBot, AirVent, Sparkles
+  ChevronRight, LucideBrainCircuit, Bot, Sparkles
 } from 'lucide-react';
 import { motion, useMotionTemplate, useMotionValue, AnimatePresence } from 'framer-motion';
 import { Project, Experience } from './types';

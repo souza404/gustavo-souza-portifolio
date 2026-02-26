@@ -1,31 +1,28 @@
 import React, { useState } from 'react';
 import {
   Workflow, Database, Linkedin, Github, Mail, BrainCircuit,
-  Zap, X, ArrowRight, CheckCircle2, MessageSquare, Mic, Calendar,
-  Play, Clock, Maximize2, Brain, Download, Briefcase, ExternalLink,
-  ChevronRight, Smartphone, LucideBrainCircuit, Bot
+  Zap, X, ArrowRight, CheckCircle2, Mic, Calendar,
+  Play, Clock, Maximize2, Download, Briefcase, ExternalLink,
+  ChevronRight, LucideBrainCircuit, Bot, BotIcon, BookTemplateIcon, LucideBot, AirVent, Sparkles
 } from 'lucide-react';
 import { motion, useMotionTemplate, useMotionValue, AnimatePresence } from 'framer-motion';
 import { Project, Experience } from './types';
 
-// --- VISUALIZATIONS ---
-
-// Otimização: React.memo evita re-renderizações desnecessárias desse componente estático
 const AestheticBotVisual = React.memo(() => (
   <div className="w-full h-full flex flex-col bg-[#050505] rounded-xl overflow-hidden relative font-sans select-none">
     {/* Header */}
     <div className="bg-[#111] px-4 py-3 border-b border-white/5 flex items-center justify-between z-10">
       <div className="flex items-center gap-3">
         <img
-          src="/luana.png"
-          alt="Luana"
+          src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/nova-aura-logo.png"
+          alt="Nova Aura Logo"
           loading="lazy" decoding="async"
           className="w-8 h-8 rounded-full object-cover shadow-lg shadow-rose-500/20 border border-white/10"
         />
         <div>
-          <h3 className="text-white text-xs font-bold">Luana - Nova Aura</h3>
+          <h3 className="text-white text-xs font-bold">Nova Aura</h3>
           <p className="text-emerald-400 text-[9px] font-medium flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Online • Uazapi
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Online
           </p>
         </div>
       </div>
@@ -60,7 +57,7 @@ const AestheticBotVisual = React.memo(() => (
 
       {/* MENSAGEM 2 */}
       <div className="flex gap-3 relative z-10">
-        <img src="/luana.png" alt="Luana" loading="lazy" decoding="async" className="w-7 h-7 rounded-full object-cover shadow-lg shadow-rose-900/20 border border-white/10 shrink-0 mt-1" />
+        <img src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/nova-aura-logo.png" alt="Nova Aura logo" loading="lazy" decoding="async" className="w-7 h-7 rounded-full object-cover shadow-lg shadow-rose-900/20 border border-white/10 shrink-0 mt-1" />
         <div className="flex flex-col gap-2 max-w-[85%]">
           <div className="bg-[#1a1a1a] border border-white/5 rounded-xl rounded-tl-sm p-3 shadow-md">
             <img
@@ -89,7 +86,7 @@ const AestheticBotVisual = React.memo(() => (
 
       {/* MENSAGEM 4 */}
       <div className="flex gap-3 relative z-10">
-        <img src="/luana.png" alt="Luana" loading="lazy" decoding="async" className="w-7 h-7 rounded-full object-cover shadow-lg shadow-rose-900/20 border border-white/10 shrink-0 mt-1" />
+        <img src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/nova-aura-logo.png" alt="Nova Aura Logo" loading="lazy" decoding="async" className="w-7 h-7 rounded-full object-cover shadow-lg shadow-rose-900/20 border border-white/10 shrink-0 mt-1" />
         <div className="bg-[#1a1a1a] border border-white/5 rounded-xl rounded-tl-sm p-3 shadow-md max-w-[85%]">
           <p className="text-[10px] text-gray-300 leading-relaxed mb-3">
             Perfeito! Para sexta-feira (26/10), encontrei estes horários livres com a Dra. Sofia:
@@ -113,7 +110,7 @@ const AestheticBotVisual = React.memo(() => (
 
       {/* MENSAGEM 6 */}
       <div className="flex gap-3 relative z-10 pb-4">
-        <img src="/luana.png" alt="Luana" loading="lazy" decoding="async" className="w-7 h-7 rounded-full object-cover shadow-lg shadow-rose-900/20 border border-white/10 shrink-0 mt-1" />
+        <img src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/nova-aura-logo.png" alt="Nova Aura Logo" loading="lazy" decoding="async" className="w-7 h-7 rounded-full object-cover shadow-lg shadow-rose-900/20 border border-white/10 shrink-0 mt-1" />
         <div className="flex flex-col gap-2 max-w-[85%]">
           <div className="bg-[#1a1a1a] border border-white/5 rounded-xl rounded-tl-sm p-3 shadow-md">
             <p className="text-[10px] text-gray-300 leading-relaxed">
@@ -154,36 +151,66 @@ const AestheticBotVisual = React.memo(() => (
   </div>
 ));
 
-// Reintegrado o zoom de imagens e otimizado com memo
 const WorkflowGallery = React.memo(({ workflows }: { workflows: NonNullable<Project['workflows']> }) => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <div className="space-y-16">
+    <div className="relative space-y-16 md:space-y-24">
       {workflows.map((flow, index) => (
         <motion.div
           key={index}
           className="group relative"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: index * 0.2 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: index * 0.15 }}
         >
-          <div className="flex flex-col md:flex-row gap-8">
-            {/* Index & Title Column */}
-            <div className="md:w-1/3 flex flex-row md:flex-col gap-4 sticky top-6 self-start">
-              <div className="flex items-center gap-4 md:gap-0 md:flex-col md:items-start">
-                <div className="w-10 h-10 rounded-full bg-n8n-primary flex items-center justify-center text-white font-bold shadow-[0_0_20px_rgba(255,109,90,0.4)] z-10 shrink-0 border-4 border-[#0a0a0a]">
-                  {index + 1}
+          <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start">
+
+            {/* Coluna de Texto (Sticky) */}
+            <div className="w-full md:w-[40%] flex flex-col gap-5 sticky top-8 md:top-24 z-10">
+
+              {/* Cabeçalho com Ícone Numerado */}
+              <div className="flex items-center gap-5">
+                {/* Badge Numerado */}
+                <div className="relative shrink-0">
+                  {/* Brilho de fundo Violeta */}
+                  <div className="absolute inset-0 bg-[#B881FB]/20 blur-xl rounded-full transition-all duration-500 group-hover:bg-[#B881FB]/40 group-hover:scale-110"></div>
+                  <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] border border-white/10 flex items-center justify-center shadow-2xl transform -rotate-3 transition-all duration-500 group-hover:rotate-0 group-hover:border-[#B881FB]/40">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl pointer-events-none"></div>
+                    {/* Gradiente do texto terminando em Violeta */}
+                    <span className="font-mono text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-[#B881FB]/70">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-white mt-0 md:mt-4">{flow.title}</h3>
+
+                {/* Título */}
+                <div className="flex flex-col">
+                  {/* Texto de apoio Violeta */}
+                  <span className="text-[#B881FB] text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] mb-1 opacity-80">
+                    Etapa do Fluxo
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+                    {flow.title}
+                  </h3>
+                </div>
               </div>
-              <div className="hidden md:block">
-                <p className="text-sm text-gray-400 leading-relaxed mb-6">{flow.description}</p>
-                <div className="flex flex-wrap gap-2">
+
+              {/* Descrição e Tags */}
+              <div className="flex flex-col gap-5 mt-2">
+                <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
+                  {flow.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 sm:gap-2.5">
                   {flow.features.map((feat, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs text-gray-300 bg-white/5 px-2 py-1 rounded border border-white/5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-n8n-primary"></div>
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 text-[11px] sm:text-xs font-medium text-gray-300 bg-white/[0.03] hover:bg-white/[0.08] px-3 py-1.5 rounded-lg border border-white/5 hover:border-white/15 transition-colors"
+                    >
+                      {/* Ponto de "LED" Violeta com Sombra */}
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#B881FB]/80 shadow-[0_0_8px_rgba(184,129,251,0.6)]"></div>
                       {feat}
                     </div>
                   ))}
@@ -191,74 +218,101 @@ const WorkflowGallery = React.memo(({ workflows }: { workflows: NonNullable<Proj
               </div>
             </div>
 
-            {/* Mobile Description */}
-            <div className="md:hidden">
-              <p className="text-sm text-gray-400 leading-relaxed mb-4">{flow.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {flow.features.map((feat, i) => (
-                  <span key={i} className="px-2 py-1 rounded bg-white/5 border border-white/10 text-[10px] text-n8n-primary font-mono">{feat}</span>
-                ))}
-              </div>
-            </div>
+            {/* Coluna da Imagem (Mockup Janela 3D com Brilho Passante) */}
+            <div className="w-full md:w-[60%] relative z-20" style={{ perspective: "1200px" }}>
 
-            {/* Image Column */}
-            <div className="md:w-2/3">
-              <div className="relative rounded-xl overflow-hidden border border-white/10 bg-[#0f0f11] shadow-2xl group-hover:border-n8n-primary/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-                <div className="h-9 bg-[#1a1a1a] border-b border-white/5 flex items-center px-4 gap-2">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]"></div>
-                  </div>
-                  <div className="ml-4 px-3 py-1 rounded-md bg-black/50 text-[10px] text-gray-500 font-mono flex-1 text-center truncate flex items-center justify-center gap-2">
-                    <Workflow className="w-3 h-3 text-n8n-primary" />
-                    n8n_workflow_{index + 1}.json
-                  </div>
+              <motion.div
+                whileHover={{ scale: 1.02, rotateX: 2, rotateY: -3, y: -8 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+
+                className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#080808] shadow-2xl transition-shadow duration-500 hover:border-[#B881FB]/30 hover:shadow-[0_20px_40px_rgba(184,129,251,0.15)] group/card"
+              >
+
+                {/* Efeito de Brilho (Shine/Glare) passante */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-30 rounded-2xl">
+                  <div className="w-[150%] h-[150%] bg-gradient-to-r from-transparent via-white/10 to-transparent absolute top-0 -left-[150%] transform -skew-x-[30deg] group-hover/card:left-[150%] transition-all duration-1000 ease-in-out"></div>
                 </div>
 
+                {/* Header do Navegador */}
+                <div className="h-12 bg-[#111] border-b border-white/5 flex items-center px-4 justify-between relative z-10 pointer-events-none">
+                  {/* Botões Mac */}
+                  <div className="flex gap-2 shrink-0">
+                    <div className="w-3 h-3 rounded-full bg-[#FF5F56]/60 transition-colors"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#FFBD2E]/60 transition-colors"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#27C93F]/60 transition-colors"></div>
+                  </div>
+
+                  {/* Barra de Endereço / Título do Arquivo Dinâmico */}
+                  <div className="flex-1 flex justify-center mx-4 overflow-hidden">
+                    <div className="px-4 py-1.5 rounded-full bg-black/40 border border-white/5 text-[10px] sm:text-xs text-gray-400 font-mono flex items-center gap-2 max-w-full">
+                      {/* Ícone n8n Violeta */}
+                      <N8nIcon className="w-3.5 h-3.5 text-[#B881FB] shrink-0" />
+                      <span className="truncate">
+                        {/* Lógica para converter "Gestor de Estado do Lead" em "gestor_de_estado_do_lead.json" */}
+                        {flow.title
+                          .toLowerCase()
+                          .normalize("NFD")
+                          .replace(/[\u0300-\u036f]/g, "") // Remove acentos
+                          .replace(/[^a-z0-9\s-]/g, "")    // Remove caracteres especiais, mantendo espaços e hifens
+                          .replace(/\s+/g, "_")            // Substitui espaços por underlines
+                        }.json
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="w-[52px] shrink-0 hidden sm:block"></div>
+                </div>
+
+                {/* Área da Imagem */}
                 <div
-                  className="relative group/img cursor-zoom-in bg-grid-white/[0.02]"
+                  className="relative cursor-zoom-in bg-grid-white/[0.01] bg-[size:20px_20px]"
                   onClick={() => setSelectedImage(flow.image)}
                 >
                   <img
                     src={flow.image}
                     alt={flow.title}
-                    loading="lazy" decoding="async"
-                    className="w-full h-auto object-cover opacity-90 transition-opacity hover:opacity-100"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto object-cover opacity-80 transition-all duration-700 group-hover/card:opacity-100"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-colors flex items-center justify-center">
-                    <div className="opacity-0 group-hover/img:opacity-100 transform translate-y-4 group-hover/img:translate-y-0 transition-all bg-black/80 backdrop-blur px-5 py-2.5 rounded-full text-white text-sm font-medium flex items-center gap-2 border border-white/10 shadow-xl">
-                      <Maximize2 className="w-4 h-4" /> Ampliar Fluxo
+
+                  {/* Overlay Hover para Ampliar */}
+                  <div className="absolute inset-0 bg-black/0 group-hover/card:bg-black/30 transition-colors duration-300 flex items-center justify-center pointer-events-none">
+                    <div className="opacity-0 group-hover/card:opacity-100 transform translate-y-4 group-hover/card:translate-y-0 transition-all duration-300 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full text-white text-sm font-bold flex items-center gap-2 border border-white/20 shadow-2xl">
+                      {/* Ícone Violeta no botão de ampliar */}
+                      <Maximize2 className="w-4 h-4 text-[#B881FB]" /> Ampliar Fluxo
                     </div>
                   </div>
                 </div>
-              </div>
+
+              </motion.div>
             </div>
+
           </div>
         </motion.div>
       ))}
 
-      {/* Modal de Zoom */}
+      {/* Modal de Zoom com Desfoque Gaussiano */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
+            className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-md flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
             onClick={() => setSelectedImage(null)}
           >
-            <button className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 bg-white/10 rounded-full">
-              <X className="w-6 h-6" />
+            <button className="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors p-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full group">
+              <X className="w-6 h-6 transition-transform group-hover:rotate-90" />
             </button>
             <motion.img
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
               src={selectedImage}
               loading="lazy"
-              className="max-w-full max-h-[90vh] rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.8)] object-contain"
+              className="max-w-full max-h-[90vh] rounded-xl shadow-[0_0_80px_rgba(0,0,0,0.5)] border border-white/10 object-contain"
               onClick={(e) => e.stopPropagation()}
             />
           </motion.div>
@@ -267,8 +321,6 @@ const WorkflowGallery = React.memo(({ workflows }: { workflows: NonNullable<Proj
     </div>
   );
 });
-
-// --- DATA (Mantidos inalterados fora do componente principal para melhor performance) ---
 
 const experiences: Experience[] = [
   {
@@ -297,45 +349,47 @@ const experiences: Experience[] = [
 const projects: Project[] = [
   {
     id: 'whatsapp-assistant',
-    title: 'Assistente WhatsApp com Inteligência Generativa',
-    tagline: 'Atendimento Humanizado via WhatsApp com LLMs',
-    description: 'Um agente de atendimento avançado que utiliza Grandes Modelos de Linguagem (LLMs) para interpretar intenções complexas, gerenciar o contexto da conversa e realizar agendamentos via WhatsApp. O sistema utiliza a Uazapi API para a conexão entre mensagens e um cérebro de IA no n8n que orquestra ferramentas externas (Calendário, Banco de Dados, MCP) através de Function Calling.',
+    title: 'Assistente de Agendamentos com Inteligência Generativa',
+    tagline: 'Atendimento Humanizado',
+    description: 'Trata-se de um agente de IA para WhatsApp que utiliza LLMs e o n8n para interpretar clientes e realizar agendamentos, acionando automaticamente ferramentas externas como calendários e bancos de dados.',
     challenge: 'Empresas enfrentam dificuldade em automatizar suporte técnico via WhatsApp com chatbots tradicionais, que são robóticos, baseados em árvores de decisão rígidas e incapazes de manter o contexto de uma conversa longa ou realizar ações complexas como verificar disponibilidade em tempo real.',
-    solution: 'Desenvolvi um ecossistema integrando ao WhatsApp. O backend é orquestrado no n8n, onde uma IA com System Prompt avançado gerencia o estado da conversa, utiliza ferramentas (Tools) para buscar informações no banco de dados e executa agendamentos, oferecendo uma experiência fluida e humanizada.',
+    solution: 'Desenvolvi um ecossistema integrando ao WhatsApp. O backend é orquestrado no n8n, onde uma IA com System Prompt avançado gerencia o estado da conversa, utiliza ferramentas para buscar informações no banco de dados e executa agendamentos, oferecendo uma experiência fluida e humanizada.',
     impact: [
       'Interpretação natural de mensagens de voz e texto',
       'Agendamento automático integrado ao Google Calendar via MCP',
       'Redução drástica de transbordo para humanos em dúvidas frequentes'
     ],
-    metrics: [
-      { label: 'Disponibilidade', value: '24/7' },
-      { label: 'Resolução Nível 1', value: '95%' },
-      { label: 'Retenção', value: '+40%' },
-      { label: 'Custo', value: '-30%' }
-    ],
     tags: ['n8n', 'Uazapi API', 'OpenAI', '11labs', 'MCP', 'Google Calendar API', 'Postgre SQL', 'Redis'],
-    icon: <MessageSquare className="w-8 h-8" />,
-    color: "from-emerald-500 to-teal-600",
+    icon: <Sparkles />,
+    color: "from-[#9b5ce6] to-[#B881FB]",
     keyFeatures: [
       {
-        title: "Lógica Avançada (LLM)",
+        title: "Lógica Avançada",
         desc: "Usa GPT-5 para raciocínio complexo e tomada de decisão.",
-        icon: <BrainCircuit className="w-4 h-4 text-emerald-400" />
+        icon: <BrainCircuit className="w-5 h-5 text-emerald-400 shrink-0" />
       },
       {
         title: "Integração WhatsApp",
-        desc: "Conexão estável via Evolution API para envio/recebimento.",
-        icon: <Smartphone className="w-4 h-4 text-green-400" />
+        desc: "Conexão estável via Uazapi API para envio/recebimento.",
+        icon: (
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-5 h-5 text-[#25D366] shrink-0 transition-transform group-hover:scale-110"
+          >
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+          </svg>
+        )
       },
       {
         title: "Fluxo Híbrido",
         desc: "Uazapi gerencia a conversa, n8n processa a inteligência.",
-        icon: <Workflow className="w-4 h-4 text-blue-400" />
+        icon: <Workflow className="w-5 h-5 text-blue-400 shrink-0" />
       },
       {
-        title: "Contexto Infinito",
+        title: "Contexto",
         desc: "Mantém o histórico da conversa para interações naturais.",
-        icon: <Database className="w-4 h-4 text-purple-400" />
+        icon: <Database className="w-5 h-5 text-purple-400 shrink-0" />
       }
     ],
     workflows: [
@@ -379,8 +433,6 @@ const projects: Project[] = [
   }
 ];
 
-// --- MAIN COMPONENTS ---
-
 const N8nIcon = ({ className }: { className?: string }) => (
   <svg
     role="img"
@@ -411,107 +463,160 @@ const ProjectModal = React.memo(({ project, onClose }: { project: Project; onClo
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.95, opacity: 0, y: 20 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-7xl h-[95vh] sm:h-[92vh] bg-[#0a0a0a] border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col shadow-2xl ring-1 ring-white/10 will-change-transform"
+          className="relative w-[96%] sm:w-full max-w-7xl h-[95dvh] sm:h-[92dvh] bg-[#0a0a0a] border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col shadow-2xl ring-1 ring-white/10 will-change-transform mx-auto"
         >
           {/* Header */}
-          <div className="flex flex-col sm:flex-row items-center justify-between px-6 py-4 border-b border-white/5 bg-[#080808] gap-4 sm:gap-0 z-20">
-            <div className="flex items-center gap-3">
-              <div className={`p-2.5 rounded-xl bg-gradient-to-br ${project.color} bg-opacity-20 border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]`}>
-                {React.cloneElement(project.icon as React.ReactElement<any>, { className: "text-white w-5 h-5" })}
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-white leading-tight">{project.title}</h2>
-                <p className="text-[10px] text-gray-500 font-mono uppercase tracking-wider">AI Automation Case</p>
-              </div>
-            </div>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 sm:px-6 sm:py-4 border-b border-white/5 bg-[#080808] gap-4 z-20 shrink-0">
 
-            <div className="flex items-center gap-3">
-              {project.workflows && (
-                <button
-                  onClick={() => setActiveTab('workflow')}
-                  className={`group px-6 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 flex items-center gap-2 border ${activeTab === 'workflow' ? 'bg-gradient-to-r from-n8n-dark to-n8n-primary border-transparent text-white shadow-[0_4px_20px_rgba(255,109,90,0.3)] scale-105' : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10'}`}
-                >
-                  <N8nIcon className={`w-4 h-4 transition-transform group-hover:scale-125 ${activeTab === 'workflow' ? 'text-white' : 'text-n8n-primary'}`} />
-                  ARQUITETURA (n8n)
-                </button>
-              )}
-              <button
-                onClick={() => setActiveTab('overview')}
-                className={`px-6 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 border ${activeTab === 'overview' ? 'bg-white text-black border-transparent shadow-[0_4px_20px_rgba(255,255,255,0.2)] scale-105' : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10'}`}
-              >
-                VISÃO GERAL
+            {/* Contêiner do Título e Botão Fechar (Mobile) */}
+            <div className="flex items-center justify-between w-full sm:w-auto">
+              <div className="flex items-center gap-3">
+                <div className={`p-2 sm:p-2.5 rounded-xl bg-gradient-to-br ${project.color} bg-opacity-20 border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)] shrink-0`}>
+                  {React.cloneElement(project.icon as React.ReactElement<any>, { className: "text-white w-4 h-4 sm:w-5 sm:h-5" })}
+                </div>
+                <div className="min-w-0">
+                  <h2 className="text-base sm:text-lg font-bold text-white leading-tight truncate pr-2">{project.title}</h2>
+                  <p className="text-[9px] sm:text-[10px] text-gray-500 font-mono uppercase tracking-wider truncate">Case de Automação com IA</p>
+                </div>
+              </div>
+
+              {/* Botão Fechar - Mobile (Integrado ao fluxo para não sobrepor nada) */}
+              <button onClick={onClose} className="sm:hidden shrink-0 p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-gray-400 hover:text-white transition-colors">
+                <X className="w-4 h-4" />
               </button>
             </div>
 
-            <button onClick={onClose} className="hidden sm:block p-2 rounded-full hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
-              <X className="w-5 h-5" />
-            </button>
-            <button onClick={onClose} className="sm:hidden absolute top-4 right-4 p-2 rounded-full bg-black/50 border border-white/10 text-white">
-              <X className="w-5 h-5" />
-            </button>
+            {/* Contêiner de Botões / Abas */}
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full sm:w-auto">
+              {project.workflows && (
+                <button
+                  onClick={() => setActiveTab('workflow')}
+                  className={`group flex-1 sm:flex-none justify-center px-3 sm:px-6 py-2.5 rounded-xl text-[10px] sm:text-xs font-bold transition-all duration-300 flex items-center gap-1.5 sm:gap-2 border ${activeTab === 'workflow' ? 'bg-gradient-to-r from-[#9b5ce6] to-[#B881FB] border-transparent text-white shadow-[0_4px_20px_rgba(184,129,251,0.4)] sm:scale-105' : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-white/10'}`}
+                >
+                  <N8nIcon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:scale-125 shrink-0 ${activeTab === 'workflow' ? 'text-white' : 'text-[#B881FB]'}`} />
+                  <span className="truncate">ARQUITETURA  </span>
+                </button>
+              )}
+
+              <button
+                onClick={() => setActiveTab('overview')}
+                className={`group flex-1 sm:flex-none justify-center flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2.5 rounded-xl text-[10px] sm:text-xs font-bold transition-all duration-300 border ${activeTab === 'overview' ? 'bg-gradient-to-r from-[#9b5ce6] to-[#B881FB] border-transparent text-white shadow-[0_4px_20px_rgba(184,129,251,0.4)] sm:scale-105' : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-[#B881FB]/10 hover:border-[#B881FB]/30'}`}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="sm:w-4 sm:h-4 transition-transform group-hover:scale-110 shrink-0"
+                >
+                  <rect width="7" height="9" x="3" y="3" rx="1" />
+                  <rect width="7" height="5" x="14" y="3" rx="1" />
+                  <rect width="7" height="9" x="14" y="12" rx="1" />
+                  <rect width="7" height="5" x="3" y="16" rx="1" />
+                </svg>
+                <span className="truncate">VISÃO GERAL</span>
+              </button>
+
+              {/* Botão de Redirecionamento para o WhatsApp (Ocupa 100% no mobile) */}
+              <a
+                href="https://wa.me/553131919202"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-full sm:w-auto justify-center px-4 sm:px-6 py-2.5 rounded-xl text-[10px] sm:text-xs font-bold transition-all duration-300 border bg-white/5 border-white/10 text-gray-400 hover:text-white hover:bg-[#25D366]/10 hover:border-[#25D366]/50 flex items-center gap-2 mt-1 sm:mt-0"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  className="sm:w-4 sm:h-4 text-[#25D366] transition-transform group-hover:scale-110 shrink-0"
+                >
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                </svg>
+                ASSISTENTE
+                <div className="relative flex h-2 w-2 ml-1">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </div>
+              </a>
+
+              {/* Botão Fechar - Desktop */}
+              <button onClick={onClose} className="hidden sm:block p-2 ml-2 rounded-full hover:bg-white/10 text-gray-400 hover:text-white transition-colors shrink-0">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
           {/* Content Body */}
           <div className="flex-1 overflow-hidden relative bg-[#0a0a0a]">
             {activeTab === 'overview' && (
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col lg:flex-row overflow-y-auto custom-scrollbar">
-                <div className="w-full lg:w-[45%] lg:order-2 bg-[#050505] relative border-b lg:border-b-0 lg:border-l border-white/5 flex flex-col min-h-[40vh] shrink-0">
-                  <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none"></div>
-                  <div className="flex-1 p-6 sm:p-10 flex items-center justify-center relative overflow-hidden">
-                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r ${project.color} blur-[100px] opacity-15`}></div>
-                    <div className="relative z-10 w-full max-w-[360px] aspect-[9/16] shadow-2xl">
-                      <div className="w-full h-full rounded-2xl border border-white/10 bg-[#0a0a0a] overflow-hidden shadow-2xl">
+
+                {/* Lado do Visual (Imagem) */}
+                <div className="w-full lg:w-[45%] lg:order-2 bg-[#050505] relative border-b lg:border-b-0 lg:border-l border-white/5 flex flex-col min-h-[35dvh] sm:min-h-[40dvh] shrink-0 overflow-hidden">
+                  <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505] pointer-events-none"></div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 bg-[#B881FB] opacity-30 blur-[100px] rounded-full pointer-events-none"></div>
+                  <div className="flex-1 p-6 sm:p-10 flex items-center justify-center relative z-10">
+
+                    <div className="relative w-full max-w-[280px] sm:max-w-[360px] aspect-[9/16] group">
+                      <div className="absolute inset-0 bg-[#B881FB] rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"></div>
+                      <div className="relative w-full h-full rounded-2xl border border-white/10 bg-[#0a0a0a] overflow-hidden shadow-2xl">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/5 opacity-50 pointer-events-none"></div>
                         <AestheticBotVisual />
                       </div>
+
                     </div>
                   </div>
                 </div>
 
-                <div className="w-full lg:w-[55%] p-8 sm:p-12 bg-[#0a0a0a] flex flex-col">
-                  <div className="mb-10">
-                    <h1 className="text-3xl sm:text-4xl font-display font-bold text-white mb-3 leading-tight">{project.tagline}</h1>
-                    <p className="text-gray-400 text-sm leading-relaxed max-w-xl">{project.description}</p>
+                {/* Lado do Texto */}
+                <div className="w-full lg:w-[55%] p-5 sm:p-12 bg-[#0a0a0a] flex flex-col">
+                  <div className="mb-8 sm:mb-10">
+                    <h1 className="text-2xl sm:text-4xl font-display font-bold text-white mb-3 leading-tight">{project.tagline}</h1>
+                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-xl">{project.description}</p>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 sm:mb-10">
                     {project.keyFeatures?.map((feature, i) => (
-                      <div key={i} className="bg-white/[0.03] hover:bg-white/[0.05] border border-white/5 rounded-xl p-3 flex gap-3 transition-colors">
+                      <div key={i} className="bg-white/[0.03] hover:bg-white/[0.05] border border-white/5 rounded-xl p-3 sm:p-4 flex gap-3 transition-colors">
                         <div className="mt-0.5 shrink-0 bg-black/40 w-8 h-8 rounded-lg flex items-center justify-center border border-white/5">{feature.icon}</div>
                         <div>
-                          <h4 className="text-white text-xs font-bold mb-0.5">{feature.title}</h4>
-                          <p className="text-[10px] text-gray-500 leading-snug">{feature.desc}</p>
+                          <h4 className="text-white text-xs sm:text-sm font-bold mb-0.5">{feature.title}</h4>
+                          <p className="text-[11px] sm:text-xs text-gray-500 leading-snug">{feature.desc}</p>
                         </div>
                       </div>
                     ))}
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
-                    {project.metrics.map((m, i) => (
-                      <div key={i} className="bg-gradient-to-b from-white/[0.05] to-transparent p-3 rounded-lg border border-white/5 text-center">
-                        <div className="text-lg sm:text-xl font-bold text-white font-mono">{m.value}</div>
-                        <div className="text-gray-500 text-[9px] uppercase tracking-wider">{m.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="space-y-6 flex-1">
-                    <div className="bg-red-500/5 border border-red-500/10 rounded-xl p-5 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 p-3 opacity-10"><Zap className="w-12 h-12 text-red-500" /></div>
-                      <h3 className="text-red-400 text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+
+                  <div className="space-y-4 sm:space-y-6 flex-1">
+                    <div className="bg-red-500/5 border border-red-500/10 rounded-xl p-4 sm:p-5 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 p-3 opacity-10"><Zap className="w-10 h-10 sm:w-12 sm:h-12 text-red-500" /></div>
+                      <h3 className="text-red-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
                         <span className="w-1 h-1 rounded-full bg-red-500"></span> O Problema
                       </h3>
-                      <p className="text-gray-300 text-sm leading-relaxed">{project.challenge}</p>
+                      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed relative z-10">{project.challenge}</p>
                     </div>
-                    <div className="bg-blue-500/5 border border-blue-500/10 rounded-xl p-5 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 p-3 opacity-10"><Bot className="w-12 h-12 text-blue-500" /></div>
-                      <h3 className="text-blue-400 text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+
+                    <div className="bg-blue-500/5 border border-blue-500/10 rounded-xl p-4 sm:p-5 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 p-3 opacity-10"><Bot className="w-10 h-10 sm:w-12 sm:h-12 text-blue-500" /></div>
+                      <h3 className="text-blue-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
                         <span className="w-1 h-1 rounded-full bg-blue-500"></span> A Solução
                       </h3>
-                      <p className="text-gray-300 text-sm leading-relaxed">{project.solution}</p>
+                      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed relative z-10">{project.solution}</p>
                     </div>
                   </div>
-                  <div className="mt-12 pt-6 border-t border-white/5">
+
+                  <div className="mt-8 sm:mt-12 pt-6 border-t border-white/5">
                     <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-3">Tecnologias Utilizadas</div>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="px-3 py-1.5 rounded-full bg-[#111] border border-white/10 text-[10px] text-gray-300 font-mono hover:border-white/20 transition-colors cursor-default">{tag}</span>
+                        <span key={tag} className="px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#111] border border-white/10 text-[9px] sm:text-[10px] text-gray-300 font-mono hover:border-white/20 transition-colors cursor-default">{tag}</span>
                       ))}
                     </div>
                   </div>
@@ -520,14 +625,14 @@ const ProjectModal = React.memo(({ project, onClose }: { project: Project; onClo
             )}
 
             {activeTab === 'workflow' && project.workflows && (
-              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 bg-[#0a0a0a] overflow-y-auto custom-scrollbar p-6 sm:p-12">
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 bg-[#0a0a0a] overflow-y-auto custom-scrollbar p-4 sm:p-12">
                 <div className="max-w-6xl mx-auto">
-                  <div className="mb-12 text-center max-w-2xl mx-auto">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-n8n-primary/10 border border-n8n-primary/20 text-n8n-primary text-xs font-bold mb-4">
-                      <Workflow className="w-3 h-3" /> Blueprint Técnico
+                  <div className="mb-8 sm:mb-12 text-center max-w-2xl mx-auto">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#B881FB]/10 border border-[#B881FB]/20 text-[#B881FB] text-[10px] sm:text-xs font-bold mb-3 sm:mb-4">
+                      <Workflow className="w-3 h-3" /> Detalhes Técnicos
                     </div>
-                    <h3 className="text-3xl font-display font-bold text-white mb-3">Por dentro da Automação</h3>
-                    <p className="text-gray-400 text-sm">Abaixo você encontra os diagramas reais exportados do n8n. Cada fluxo foi desenhado para ser modular, escalável e à prova de falhas.</p>
+                    <h3 className="text-2xl sm:text-3xl font-display font-bold text-white mb-2 sm:mb-3">Por dentro da Automação</h3>
+                    <p className="text-gray-400 text-xs sm:text-sm">Abaixo você encontra os diagramas reais exportados do n8n. Cada fluxo foi desenhado para ser modular, escalável e à prova de falhas.</p>
                   </div>
                   <WorkflowGallery workflows={project.workflows} />
                 </div>
@@ -577,10 +682,10 @@ export default function App() {
           <div className="flex items-center">
             <a href="index.html">
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg">
-              <span className="font-display font-bold text-white text-base sm:text-xl"><LucideBrainCircuit></LucideBrainCircuit></span>
-            </div>
+                <span className="font-display font-bold text-white text-base sm:text-xl"><LucideBrainCircuit></LucideBrainCircuit></span>
+              </div>
             </a>
-            
+
           </div>
           <div className="hidden sm:flex space-x-6 lg:space-x-8 text-[13px] font-medium text-gray-400">
             <a href="#about" className="hover:text-white transition-colors">Experiência</a>
@@ -649,132 +754,132 @@ export default function App() {
 
         {/* ABOUT & EXPERIENCE SECTION - Modificada com o fix de bug de tela e hover unificado */}
         <section id="about" className="py-24 relative overflow-hidden">
-  <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] opacity-20 pointer-events-none"></div>
 
-  <div className="container mx-auto px-6 relative z-10">
-    <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
-      {/* LEFT COLUMN: Sticky Profile Card */}
-      <div className="lg:col-span-5 lg:sticky lg:top-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }} // Alterado para eixo Y para um assentamento perfeito
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          // Removido 'hover:translate-x-1' e 'will-change-transform' para não brigar com o Framer Motion
-          className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d0d0d] bg-gradient-to-b from-white/[0.07] to-transparent p-8 shadow-2xl backdrop-blur-sm bg-clip-padding transition-all duration-500 group hover:border-purple-500/30 hover:from-purple-500/[0.05]"
-        >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/20 blur-[80px] -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none"></div>
+              {/* LEFT COLUMN: Sticky Profile Card */}
+              <div className="lg:col-span-5 lg:sticky lg:top-24">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }} // Alterado para eixo Y para um assentamento perfeito
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  // Removido 'hover:translate-x-1' e 'will-change-transform' para não brigar com o Framer Motion
+                  className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0d0d0d] bg-gradient-to-b from-white/[0.07] to-transparent p-8 shadow-2xl backdrop-blur-sm bg-clip-padding transition-all duration-500 group hover:border-purple-500/30 hover:from-purple-500/[0.05]"
+                >
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-purple-600/20 blur-[80px] -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none"></div>
 
-          <div className="relative w-24 h-24 mb-6">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 animate-spin-slow blur-md opacity-50"></div>
-            <div className="relative w-full h-full rounded-full bg-[#111] border-2 border-white/10 flex items-center justify-center overflow-hidden">
-              <img
-                src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/foto_perfil.jpeg"
-                alt="Foto de Perfil"
-                loading="lazy" decoding="async"
-                className="w-full h-full object-cover z-10"
-              />
-            </div>
-            <div className="absolute bottom-0 right-0 w-6 h-6 bg-emerald-500 rounded-full border-4 border-[#0a0a0a] z-50" title="Available for work"></div>
-          </div>
-
-          <h2 className="text-3xl font-display font-bold text-white mb-2">Gustavo Souza</h2>
-          <p className="text-purple-400 font-mono text-sm mb-6">Engenheiro de Automação & IA</p>
-
-          <p className="text-gray-400 text-sm leading-relaxed mb-8">
-            Especialista em Hiperautomação e Engenharia de IA com foco na arquitetura e orquestração de fluxos de trabalho escaláveis utilizando n8n e desenvolvimento de Agentes Autônomos.
-          </p>
-
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
-              <div className="text-2xl font-bold text-white mb-1">4+</div>
-              <div className="text-[10px] text-gray-500 uppercase tracking-widest">Anos Exp.</div>
-            </div>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
-              <div className="text-2xl font-bold text-white mb-1">15+</div>
-              <div className="text-[10px] text-gray-500 uppercase tracking-widest">Soluções Críticas</div>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            <a href="mailto:gustavohsc.contato@gmail.com" className="w-full py-3 rounded-xl bg-white text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-200 transition-all active:scale-[0.98]">
-              <Mail className="w-4 h-4" /> Entrar em Contato
-            </a>
-            <div className="flex gap-3">
-              <a href="https://www.linkedin.com/in/gustavo-hsouza/" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
-                <Linkedin className="w-4 h-4" /> LinkedIn
-              </a>
-              <a href="https://drive.google.com/file/d/1kxv9H-12uccbpJH4n9FDtZF90SIk_eIN/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
-                <Download className="w-4 h-4" /> CV
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* RIGHT COLUMN: Circuit Board Timeline */}
-      {/* Trocado lg:pt-0 por lg:pt-3 para descer a coluna da direita o suficiente para o alinhamento perfeito */}
-      <div className="lg:col-span-7 pt-8 lg:pt-3">
-        
-        {/* Adicionado motion.div no título para ele também acompanhar a animação de carregamento de forma sincronizada */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="mb-12"
-        >
-          <h3 className="text-2xl font-display font-bold text-white flex items-center gap-3">
-            <Briefcase className="w-6 h-6 text-purple-500" /> Experiência
-          </h3>
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="relative pl-8 md:pl-10 space-y-12"
-        >
-          <div className="absolute left-0 top-2 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-purple-500/20 to-transparent"></div>
-
-          {experiences.map((exp, index) => (
-            <motion.div key={index} variants={fadeIn} className="relative group">
-              <div className="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-[#0a0a0a] border-2 border-purple-500 z-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <div className="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:animate-ping"></div>
-              </div>
-              <div className="absolute -left-[30px] top-[34px] w-8 h-0.5 bg-purple-500/50 group-hover:bg-purple-500 transition-colors duration-500"></div>
-
-              <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-[#0d0d0d] transition-all duration-500 bg-gradient-to-r from-transparent to-transparent hover:border-purple-500/30 hover:from-purple-500/[0.05] group-hover:translate-x-1 will-change-transform shadow-xl">
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-white">{exp.role}</h4>
-                    <a href="#" className="text-purple-400 text-sm font-medium hover:underline flex items-center gap-1">
-                      {exp.company} <ExternalLink className="w-3 h-3" />
-                    </a>
+                  <div className="relative w-24 h-24 mb-6">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 animate-spin-slow blur-md opacity-50"></div>
+                    <div className="relative w-full h-full rounded-full bg-[#111] border-2 border-white/10 flex items-center justify-center overflow-hidden">
+                      <img
+                        src="https://wwnubuqqstssaazisvjy.supabase.co/storage/v1/object/public/images/foto_perfil.jpeg"
+                        alt="Foto de Perfil"
+                        loading="lazy" decoding="async"
+                        className="w-full h-full object-cover z-10"
+                      />
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-6 h-6 bg-emerald-500 rounded-full border-4 border-[#0a0a0a] z-50" title="Available for work"></div>
                   </div>
-                  <span className="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-400 font-mono border border-white/5 whitespace-nowrap">
-                    {exp.period}
-                  </span>
-                </div>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">{exp.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill, i) => (
-                    <span key={i} className="px-2.5 py-1 rounded-md bg-[#0f0f11] border border-white/10 text-[11px] text-gray-300 font-mono flex items-center gap-1.5 hover:border-purple-500/40 hover:text-purple-200 transition-colors cursor-default">
-                      <span className="w-1 h-1 rounded-full bg-purple-500"></span>
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+
+                  <h2 className="text-3xl font-display font-bold text-white mb-2">Gustavo Souza</h2>
+                  <p className="text-purple-400 font-mono text-sm mb-6">Engenheiro de Automação & IA</p>
+
+                  <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                    Especialista em Hiperautomação e Engenharia de IA com foco na arquitetura e orquestração de fluxos de trabalho escaláveis utilizando n8n e desenvolvimento de Agentes Autônomos.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
+                      <div className="text-2xl font-bold text-white mb-1">4+</div>
+                      <div className="text-[10px] text-gray-500 uppercase tracking-widest">Anos Exp.</div>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-center transition-colors hover:bg-white/10">
+                      <div className="text-2xl font-bold text-white mb-1">15+</div>
+                      <div className="text-[10px] text-gray-500 uppercase tracking-widest">Soluções Críticas</div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-3">
+                    <a href="mailto:gustavohsc.contato@gmail.com" className="w-full py-3 rounded-xl bg-white text-black font-bold text-sm flex items-center justify-center gap-2 hover:bg-gray-200 transition-all active:scale-[0.98]">
+                      <Mail className="w-4 h-4" /> Entrar em Contato
+                    </a>
+                    <div className="flex gap-3">
+                      <a href="https://www.linkedin.com/in/gustavo-hsouza/" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
+                        <Linkedin className="w-4 h-4" /> LinkedIn
+                      </a>
+                      <a href="https://drive.google.com/file/d/1kxv9H-12uccbpJH4n9FDtZF90SIk_eIN/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex-1 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-medium text-sm flex items-center justify-center gap-2 hover:bg-white/10 transition-all active:scale-[0.98]">
+                        <Download className="w-4 h-4" /> CV
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </div>
-  </div>
-</section>
+
+              {/* RIGHT COLUMN: Circuit Board Timeline */}
+              {/* Trocado lg:pt-0 por lg:pt-3 para descer a coluna da direita o suficiente para o alinhamento perfeito */}
+              <div className="lg:col-span-7 pt-8 lg:pt-3">
+
+                {/* Adicionado motion.div no título para ele também acompanhar a animação de carregamento de forma sincronizada */}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                  className="mb-12"
+                >
+                  <h3 className="text-2xl font-display font-bold text-white flex items-center gap-3">
+                    <Briefcase className="w-6 h-6 text-purple-500" /> Experiência
+                  </h3>
+                </motion.div>
+
+                <motion.div
+                  variants={staggerContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="relative pl-8 md:pl-10 space-y-12"
+                >
+                  <div className="absolute left-0 top-2 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-purple-500/20 to-transparent"></div>
+
+                  {experiences.map((exp, index) => (
+                    <motion.div key={index} variants={fadeIn} className="relative group">
+                      <div className="absolute -left-[41px] md:-left-[49px] top-6 w-5 h-5 rounded-full bg-[#0a0a0a] border-2 border-purple-500 z-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <div className="w-1.5 h-1.5 rounded-full bg-purple-500 group-hover:animate-ping"></div>
+                      </div>
+                      <div className="absolute -left-[30px] top-[34px] w-8 h-0.5 bg-purple-500/50 group-hover:bg-purple-500 transition-colors duration-500"></div>
+
+                      <div className="p-6 md:p-8 rounded-2xl border border-white/10 bg-[#0d0d0d] transition-all duration-500 bg-gradient-to-r from-transparent to-transparent hover:border-purple-500/30 hover:from-purple-500/[0.05] group-hover:translate-x-1 will-change-transform shadow-xl">
+                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+                          <div>
+                            <h4 className="text-xl font-bold text-white">{exp.role}</h4>
+                            <a href="#" className="text-purple-400 text-sm font-medium hover:underline flex items-center gap-1">
+                              {exp.company} <ExternalLink className="w-3 h-3" />
+                            </a>
+                          </div>
+                          <span className="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-400 font-mono border border-white/5 whitespace-nowrap">
+                            {exp.period}
+                          </span>
+                        </div>
+                        <p className="text-gray-400 text-sm leading-relaxed mb-6">{exp.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.skills.map((skill, i) => (
+                            <span key={i} className="px-2.5 py-1 rounded-md bg-[#0f0f11] border border-white/10 text-[11px] text-gray-300 font-mono flex items-center gap-1.5 hover:border-purple-500/40 hover:text-purple-200 transition-colors cursor-default">
+                              <span className="w-1 h-1 rounded-full bg-purple-500"></span>
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* PROJECTS SECTION */}
         <motion.section
@@ -814,10 +919,10 @@ export default function App() {
                             </div>
                             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md group-hover:bg-white/10 transition-colors">
                               <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                               </span>
-                              <span className="text-[10px] font-bold text-rose-200 uppercase tracking-widest font-mono">Live Demo</span>
+                              <span className="text-[10px] font-bold text-rose-200 uppercase tracking-widest font-mono">Agente Funcionando</span>
                             </div>
                           </div>
                           <h3 className="text-3xl sm:text-4xl font-display font-bold text-white mb-4 leading-tight">{project.title}</h3>
@@ -832,7 +937,7 @@ export default function App() {
                               <span key={i} className="px-3 py-1 rounded-lg bg-black/40 border border-white/5 text-[11px] text-gray-400 font-mono hover:bg-white/5 hover:border-white/10 transition-colors">{tag}</span>
                             ))}
                           </div>
-                          <div className="flex items-center gap-2 text-sm font-bold text-white group-hover:text-rose-400 transition-colors">
+                          <div className="flex items-center gap-2 text-sm font-bold text-white group-hover:text-[#B881FB] transition-colors">
                             Ver Detalhes do Projeto <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                           </div>
                         </div>
@@ -865,7 +970,7 @@ export default function App() {
         <div className="container mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-8">
           <div className="text-center sm:text-left">
             <h4 className="text-xl sm:text-2xl font-display font-bold text-white mb-1">Gustavo Souza</h4>
-            <p className="text-gray-600 text-[10px] sm:text-xs uppercase tracking-widest font-mono">AI Solutions Engineer</p>
+            <p className="text-gray-600 text-[10px] sm:text-xs uppercase tracking-widest font-mono">Especialista em IA e n8n</p>
           </div>
           <div className="flex gap-4 sm:gap-6">
             <a href="mailto:gustavohsc.contato@gmail.com" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-card flex items-center justify-center hover:bg-white hover:text-black transition-all">
@@ -897,7 +1002,7 @@ export default function App() {
           </div>
         </div>
         <div className="mt-10 text-center text-[10px] text-gray-700 font-mono">
-          © 2026 Gustavo Souza.
+          © 2026 Gustavo Souza
         </div>
       </footer>
 

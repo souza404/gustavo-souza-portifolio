@@ -15,7 +15,6 @@ export interface Project {
   challenge: string;
   solution: string;
   impact: string[];
-  metrics: { label: string; value: string }[];
   tags: string[];
   icon: React.ReactNode;
   color: string;
